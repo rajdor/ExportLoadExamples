@@ -9,18 +9,18 @@ Note,
   Curerntly these are simple examples, thus the 'common' file format is also simple; Pipe delimted, no quotes or escapes
   It is suggested that a common file format be tested against each database, load and unload utility for the following items:
   * Delimiters
-  * quoted values
+  * Quoted values
   * Carriage returns
   * Escape characters
   * Nulls
   Additionally, Dates, Times and Timestamps be consistently specified for each load and unload utility.
 
-A few different snippets are used in this project including:
+A few useful snippets are used in this project including:
 * yes no ask shell script input
 * shell script banner
 * aws cli s3 copy
 * cli database select value to shell script variable
-* gzip and unzip for reshdit loads
+* gzip and unzip for Redshift loads
 
 
 
@@ -73,23 +73,23 @@ Sources used include
 
 ### Examples
 ```
-arrod@ubuntu:~/projects-gitea/ExportLoadExamples$ ./init_db2warehouse_table.sh 
+jarrod@ubuntu:~/projects/ExportLoadExamples$ ./init_db2warehouse_table.sh 
 
 +----------------------------------------------------------------------------------+
 | Thu 28 May 2020 09:49:40 PM AEST                                                 |
-| Making working directory /home/jarrod/projects-gitea/ExportLoadExamples/tmp/2020-05-28/ |
+| Making working directory /home/jarrod/projects/ExportLoadExamples/tmp/2020-05-28/ |
 +----------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------+
 | Thu 28 May 2020 09:49:40 PM AEST                                                 |
-| Initialize Db2 Warehouse table for exports and loads using /home/jarrod/projects-gitea/ExportLoadExamples/CUSTOMER.sql and /home/jarrod/projects-gitea/ExportLoadExamples/CUSTOMER.csv |
+| Initialize Db2 Warehouse table for exports and loads using /home/jarrod/projects/ExportLoadExamples/CUSTOMER.sql and /home/jarrod/projects/ExportLoadExamples/CUSTOMER.csv |
 +----------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------+
 | Thu 28 May 2020 09:49:45 PM AEST                                                 |
-| Loading table test_data.CUSTOMER from /home/jarrod/projects-gitea/ExportLoadExamples/CUSTOMER.csv |
+| Loading table test_data.CUSTOMER from /home/jarrod/projects/ExportLoadExamples/CUSTOMER.csv |
 +----------------------------------------------------------------------------------+
-load client from /home/jarrod/projects-gitea/ExportLoadExamples/CUSTOMER.csv of DEL modified by coldel| nochardel timestampformat="YYYY-MM-DD HH:MM:SS" messages /home/jarrod/projects-gitea/ExportLoadExamples/tmp/2020-05-28//db2_load_importmessages_20200528_214940.txt REPLACE into test_data.CUSTOMER STATISTICS NO NONRECOVERABLE
+load client from /home/jarrod/projects/ExportLoadExamples/CUSTOMER.csv of DEL modified by coldel| nochardel timestampformat="YYYY-MM-DD HH:MM:SS" messages /home/jarrod/projects/ExportLoadExamples/tmp/2020-05-28//db2_load_importmessages_20200528_214940.txt REPLACE into test_data.CUSTOMER STATISTICS NO NONRECOVERABLE
 
 
 
@@ -120,16 +120,16 @@ SELECT COUNT(*) FROM test_data.CUSTOMER
 
 ```
 ```
-jarrod@ubuntu:~/projects-gitea/ExportLoadExamples$ ./export_from_db2warehouse.sh 
+jarrod@ubuntu:~/projects/ExportLoadExamples$ ./export_from_db2warehouse.sh 
 
 +----------------------------------------------------------------------------------+
 | Thu 28 May 2020 09:51:09 PM AEST                                                 |
-| Making working directory /home/jarrod/projects-gitea/ExportLoadExamples/tmp/2020-05-28/ |
+| Making working directory /home/jarrod/projects/ExportLoadExamples/tmp/2020-05-28/ |
 +----------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------+
 | Thu 28 May 2020 09:51:09 PM AEST                                                 |
-| Db2 Warehouse Export from CUSTOMER to /home/jarrod/projects-gitea/ExportLoadExamples/tmp/2020-05-28/TMP_CUSTOMER.csv |
+| Db2 Warehouse Export from CUSTOMER to /home/jarrod/projects/ExportLoadExamples/tmp/2020-05-28/TMP_CUSTOMER.csv |
 +----------------------------------------------------------------------------------+
 
 SQL3105N  The Export utility has finished exporting "120000" rows.
@@ -142,16 +142,16 @@ SQL3105N  The Export utility has finished exporting "120000" rows.
 +----------------------------------------------------------------------------------+
 ```
 ```
-jarrod@ubuntu:~/projects-gitea/ExportLoadExamples$ ./load_netezza_table.sh /home/jarrod/projects-gitea/ExportLoadExamples/tmp/2020-05-28/TMP_CUSTOMER.csv
+jarrod@ubuntu:~/projects/ExportLoadExamples$ ./load_netezza_table.sh /home/jarrod/projects/ExportLoadExamples/tmp/2020-05-28/TMP_CUSTOMER.csv
 
 +----------------------------------------------------------------------------------+
 | Thu 28 May 2020 09:52:24 PM AEST                                                 |
-| Making working directory /home/jarrod/projects-gitea/ExportLoadExamples/tmp/2020-05-28/ |
+| Making working directory /home/jarrod/projects/ExportLoadExamples/tmp/2020-05-28/ |
 +----------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------+
 | Thu 28 May 2020 09:52:24 PM AEST                                                 |
-| Netezza Load STG_CUSTOMER from /home/jarrod/projects-gitea/ExportLoadExamples/tmp/2020-05-28/TMP_CUSTOMER.csv |
+| Netezza Load STG_CUSTOMER from /home/jarrod/projects/ExportLoadExamples/tmp/2020-05-28/TMP_CUSTOMER.csv |
 +----------------------------------------------------------------------------------+
 
 Statistics
@@ -188,7 +188,3 @@ SELECT COUNT(*) FROM STG_CUSTOMER
 | Done                                                                             |
 +----------------------------------------------------------------------------------+
 ```
-
-
-
-
