@@ -85,7 +85,7 @@ The project has attempted to make a consistent file format for all above use cas
     * multiple files, manifest usage
     * and then some
   
-#Findings
+# Findings
 ## Db2 External tables
   * [Db2 11.5](https://www.ibm.com/support/producthub/db2/docs/content/SSEPGG_11.5.0/com.ibm.db2.luw.sql.ref.doc/doc/r_create_ext_table.html)
   * QuotedValue DOUBLE appears to do nothing, no columns are not enclosed in double quotes
