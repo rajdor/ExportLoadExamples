@@ -19,8 +19,8 @@ The project has attempted to make a consistent file format for all above use cas
   * Timestamp Format              : YYYY-MM-DD 24.Mi.SS.UUUUUU
   * Null as                       : NULL
   
-** This project is incomplete, refer to notes below **
-** plus, each generate SQL can be tidied up lots **
+**This project is incomplete, refer to notes below**
+**plus, each generate SQL can be tidied up lots**
 
 # Journeys  
 ## Db2 to Db2
@@ -58,14 +58,14 @@ The project has attempted to make a consistent file format for all above use cas
   * ./db2warehouse_export.sh
   * ./redshift_load_externalTable.sh <filename>
   * glue database is created using the s3 bucket name
-  ** ensure you update redshiftExternalTable.ddl with your AWS account number
+    * ensure you update redshiftExternalTable.ddl with your AWS account number
   * sql is generated to enclose characters in double quotes, escape characters, linefeeds
-  ** Timestamp requires timezone
-  ** Control Characters are replaced with ASCII 26     , as per export SQL
-  ** Carriage returns   are replaced with ASCII 32     , as per export SQL
-  ** Line Feeds         are replaced with ASCII 32     , as per export SQL
-  ** Times              are delimited by period        , as per export SQL
-  ** Timestamps         are truncated to 3 microseconds, as per export SQL
+    * Timestamp requires timezone
+    * Control Characters are replaced with ASCII 26     , as per export SQL
+    * Carriage returns   are replaced with ASCII 32     , as per export SQL
+    * Line Feeds         are replaced with ASCII 32     , as per export SQL
+    * Times              are delimited by period        , as per export SQL
+    * Timestamps         are truncated to 3 microseconds, as per export SQL
   * To do Check sql needs to escape \ - some additional work on COL_ID = 401???
 ## Db2 to Athena
   * **Incomplete**
@@ -81,9 +81,9 @@ The project has attempted to make a consistent file format for all above use cas
   * redshift_export.sh
   * db2warehouse_load.sh <filename>
   * To do:
-  ** Change to generate SQL to replace 0x00 (generate SQL in directory is simply a copy from another directory ready for working on it)
-  ** multiple files, manifest usage
-  ** and then some
+    * Change to generate SQL to replace 0x00 (generate SQL in directory is simply a copy from another directory ready for working on it)
+    * multiple files, manifest usage
+    * and then some
   
 #Findings
 ## Db2 External tables
@@ -97,17 +97,17 @@ The project has attempted to make a consistent file format for all above use cas
   * Field delimiters are escaped with the escape char \
   * Special characters (above ASCII 031) are exported as ASCII 026 (Substitution character)
   * Loading special characters using external tables
-  ** Load will replace ASCII 128  -> ASCII 163 with ASCII 194
-  ** Load will replace ASCII 164               with ASCII 226
-  ** Load will replace ASCII 192  -> ASCII 255 with ASCII 195
-  ** Load will replace ASCII 165* -> ASCII 191 with ASCII 194
-  ** Load will replace ASCII 166               with ASCII 197
-  ** Load will replace ASCII 168               with ASCII 197
-  ** Load will replace ASCII 180               with ASCII 197
-  ** Load will replace ASCII 184               with ASCII 197
-  ** Load will replace ASCII 188               with ASCII 197
-  ** Load will replace ASCII 189               with ASCII 197
-  ** Load will replace ASCII 190               with ASCII 197  
+    * Load will replace ASCII 128  -> ASCII 163 with ASCII 194
+    * Load will replace ASCII 164               with ASCII 226
+    * Load will replace ASCII 192  -> ASCII 255 with ASCII 195
+    * Load will replace ASCII 165* -> ASCII 191 with ASCII 194
+    * Load will replace ASCII 166               with ASCII 197
+    * Load will replace ASCII 168               with ASCII 197
+    * Load will replace ASCII 180               with ASCII 197
+    * Load will replace ASCII 184               with ASCII 197
+    * Load will replace ASCII 188               with ASCII 197
+    * Load will replace ASCII 189               with ASCII 197
+    * Load will replace ASCII 190               with ASCII 197  
 ## Netezza External tables  
   * QuotedValue DOUBLE appears to do nothing, no columns are not enclosed in double quotes
   * Nulls for non-string columns are replaced with zero length string; NullValue appears to only impact string columns
