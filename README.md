@@ -9,7 +9,7 @@ This project has been created to explore export, load options and enablement of 
 
 Specifically it deals with file formats (CSV and gzip) covering delimiters, quotes, escape, special characters and the different methods of Exporting, Loading and in some cases cataloging and data movement.
 
-The project has attempted to make a consistent file format for all above use case, preserving special characters and enabling a common file format.
+The intention of **was** project was to to make a consistent file format for all above use case, preserving special characters and enabling a common file format.
   * Field delimeter               : |    0x7C  ASCII 124
   * Character columns enclosed by : "    0x22  ASCII 034
   * Escape character              : \    0x5C  ASCII 092
